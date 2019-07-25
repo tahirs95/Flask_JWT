@@ -1,0 +1,167 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CRUD Operations",
+		"_postman_id": "8fee31b0-c026-c311-4743-ba25717c945d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/item/name",
+			"request": {
+				"url": "http://127.0.0.1:5000/item/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjQwMDAxODUsImlhdCI6MTU2Mzk5OTg4NSwibmJmIjoxNTYzOTk5ODg1LCJpZGVudGl0eSI6MX0.B0siAiHRuEPYTYWM7i2iKlUHDwa-8nh1Jib3FqhUITw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/register",
+			"request": {
+				"url": "http://127.0.0.1:5000/registration",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"tahirs95\",\n\t\"password\":\"islamabad\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"url": "http://127.0.0.1:5000/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"tahirs95\",\n\t\"password\":\"islamabad\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/logout",
+			"request": {
+				"url": "http://127.0.0.1:5000/auth",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\":\"tahirs95\",\n\t\"password\":\"islamabad\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/items",
+			"request": {
+				"url": "http://127.0.0.1:5000/items",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"url": "http://127.0.0.1:5000/blog/taha",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"content\":\"a navbar and 1 page where we can have a image gallery(so both the bootstrap are done) and while creating crud we can add a bit of jquery. Bootstrap (image gallery) and navbar and for bootstrap add basic features.\",\n\t\"image_name\":\"def.png\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"url": "http://127.0.0.1:5000/item/1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjQwMDAxODUsImlhdCI6MTU2Mzk5OTg4NSwibmJmIjoxNTYzOTk5ODg1LCJpZGVudGl0eSI6MX0.B0siAiHRuEPYTYWM7i2iKlUHDwa-8nh1Jib3FqhUITw",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"complaint_details\":\"Hello\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/item/<name>",
+			"request": {
+				"url": "http://127.0.0.1:5000/item/1",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

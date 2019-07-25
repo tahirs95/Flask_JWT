@@ -1,7 +1,5 @@
 import sqlite3
 from db import db
-from passlib.hash import pbkdf2_sha256 as sha256
-
 
 class UserModel(db.Model):
     __tablename__ = 'users'
@@ -21,14 +19,6 @@ class UserModel(db.Model):
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
-    
-    @staticmethod
-    def generate_hash(password):
-        return sha256.hash(password)
-    
-    @staticmethod
-    def verify_hash(password, hash):
-        return sha256.verify(password, hash)
     
     def save_to_db(self):
         db.session.add(self)

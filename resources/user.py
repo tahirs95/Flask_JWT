@@ -41,7 +41,6 @@ class UserLogin(Resource):
         if not current_user:
             return {'message': 'User {} doesn\'t exist'.format(data['username'])}
         
-        # if UserModel.verify_hash(data['password'], current_user.password):
         if current_user and safe_str_cmp(current_user.password, data['password']):
             access_token = create_access_token(identity = data['username'])
             refresh_token = create_refresh_token(identity = data['username'])

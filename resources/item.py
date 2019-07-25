@@ -1,8 +1,6 @@
 import sqlite3
 from flask import Flask, jsonify, request, render_template
 from flask_restful import Resource, Api, reqparse
-# from flask_jwt import JWT, jwt_required
-from security import authenticate, identity
 from models.item import ItemModel
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, jwt_refresh_token_required, get_jwt_identity, get_raw_jwt
 
@@ -28,7 +26,7 @@ class Item(Resource):
     @jwt_required
     def post(self,id):
         if ItemModel.find_by_id(id):
-            return({"message":"An item with name {} already exists.".format(name)})
+            return({"message":"An item with name {} already exists.".format(id)})
         data = Item.parser.parse_args()
         item = ItemModel(data["complaint_details"])
         try:
@@ -46,7 +44,7 @@ class Item(Resource):
             return {"message":"Item deleted"}
         else:
             return({"message":"Item not found."})
-            
+
     @jwt_required
     def put(self, name):
         data = Item.parser.parse_args()

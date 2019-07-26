@@ -23,7 +23,7 @@ class ItemModel(db.Model):
 
     @classmethod
     def find_by_user(cls, user_id):
-        return cls.query.filter_by(user_id=user_id).first()
+        return cls.query.filter_by(user_id=user_id).all()
     
     def insert_update(self):
         db.session.add(self)

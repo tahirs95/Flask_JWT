@@ -22,9 +22,9 @@ class Item(Resource):
     
     @jwt_required
     def get(self, id):
-        item= ItemModel.find_by_user(id)
-        if item:
-            return item.json()
+        items = ItemModel.find_by_user(id)
+        if items:
+            return {"items":list(map(lambda x: x.json(), items))}
         return {"message":"Item not found"}, 404
 
     @jwt_required

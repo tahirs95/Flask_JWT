@@ -25,7 +25,7 @@ class UserRegistration(Resource):
             access_token = create_access_token(identity = data['username'])
             refresh_token = create_refresh_token(identity = data['username'])
             return {
-                'User ID': current_user.id,
+                'user_id': new_user.id,
                 'access_token': access_token,
                 'refresh_token': refresh_token
                 }
@@ -46,7 +46,7 @@ class UserLogin(Resource):
             access_token = create_access_token(identity = data['username'])
             refresh_token = create_refresh_token(identity = data['username'])
             return {
-                'User ID': current_user.id,
+                'user_id': current_user.id,
                 'access_token': access_token,
                 'refresh_token': refresh_token
                 }

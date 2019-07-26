@@ -14,11 +14,15 @@ class Item(Resource):
         required = True,
         help= "This field cannot be left blank."
     )
+    parser.add_argument('user_id',
+        type=int,
+        required = True,
+        help= "This field cannot be left blank."
+    )
     
     @jwt_required
     def get(self, id):
-        
-        item= ItemModel.find_by_id(id)
+        item= ItemModel.find_by_user(id)
         if item:
             return item.json()
         return {"message":"Item not found"}, 404
@@ -28,7 +32,7 @@ class Item(Resource):
         if ItemModel.find_by_id(id):
             return({"message":"An item with name {} already exists.".format(id)})
         data = Item.parser.parse_args()
-        item = ItemModel(data["complaint_details"])
+        item = ItemModel(data["complaint_details"], data["user_id"])
         try:
             item.insert_update()
         except:
@@ -37,7 +41,6 @@ class Item(Resource):
 
     @jwt_required
     def delete(self, id):
-       
         item = ItemModel.find_by_id(id)
         if item:
             item.delete()
@@ -46,12 +49,13 @@ class Item(Resource):
             return({"message":"Item not found."})
 
     @jwt_required
-    def put(self, name):
+    def put(self, id):
         data = Item.parser.parse_args()
         item = ItemModel.find_by_id(id)
         if item is None:
-            item = ItemModel(data["complaint_details"])
+            item = ItemModel(data["complaint_details"], data["user_id"])
         else:
+            item.user_id = data["user_id"]
             item.price = data["complaint_details"]
         item.insert_update()
         return item.json()

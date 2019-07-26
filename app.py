@@ -29,7 +29,7 @@ def check_if_token_in_blacklist(decrypted_token):
     jti = decrypted_token['jti']
     return RevokedTokenModel.is_jti_blacklisted(jti)
 
-api.add_resource(Item, '/item/<int:id>','/item')
+api.add_resource(Item, '/item/<int:id>')
 api.add_resource(ItemList, '/items')
 
 api.add_resource(UserRegistration, '/registration')
